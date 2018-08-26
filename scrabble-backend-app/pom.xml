@@ -19,6 +19,11 @@
   </properties>
   
   <dependencies>
+  <!-- Internal -->
+  	<dependency>
+	  	<groupId>com.gammel.conan</groupId>
+	  	<artifactId>scrabble-backend-app-model</artifactId>
+  	</dependency>
   <!-- Spring -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
