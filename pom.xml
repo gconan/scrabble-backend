@@ -31,6 +31,7 @@
     <module>scrabble-backend-app</module>
     <module>scrabble-backend-app-model</module>
     <module>scrabble-backend-data-model</module>
+    <module>scrabble-backend-core</module>
   </modules>
 
 	<dependencyManagement>

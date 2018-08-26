@@ -30,6 +30,11 @@
 	  	<artifactId>scrabble-backend-data-model</artifactId>
 	  	<version>${project.version}</version>
   	</dependency>
+  	<dependency>
+	  	<groupId>${project.groupId}</groupId>
+	  	<artifactId>scrabble-backend-core</artifactId>
+	  	<version>${project.version}</version>
+  	</dependency>
   	
   <!-- Spring -->
 		<dependency>
