@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import io.swagger.annotations.ResponseHeader;
 
-@Api(tags = "Game")
+@Api(tags = "Games")
 @RestController
 @RequestMapping("/v1/game")
 public class GameController {

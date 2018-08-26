@@ -21,9 +21,11 @@
   <dependencies>
   <!-- Internal -->
   	<dependency>
-	  	<groupId>com.gammel.conan</groupId>
+	  	<groupId>${project.groupId}</groupId>
 	  	<artifactId>scrabble-backend-app-model</artifactId>
+	  	<version>${project.version}</version>
   	</dependency>
+  	
   <!-- Spring -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
