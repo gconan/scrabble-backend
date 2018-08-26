@@ -29,4 +29,7 @@ hs_err_pid*
 .recommenders/
 target/
 .classpath
+.project
+.settings/
+bin/
 scrabble-backend-app/.classpath
