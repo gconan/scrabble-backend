@@ -5,6 +5,7 @@ import java.net.URI;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.gammel.conan.scrabble.ErrorResponse;
+import com.gammel.conan.scrabble.game.GameService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -33,6 +35,9 @@ public class GameController {
 	private static final String CREATED_NEW_GAME_RESPONSE =  "Game Created";
 	private static final String POST_400_RESPONSE_MESSAGE = "The request payload was invalid";
 	private static final String POST_500_RESPONSE_MESSAGE = "Internal error occurred";
+	
+	@Autowired
+	private GameService gameService;
 
 	//CREATE
 	@ApiOperation(value = "Start a new game")
@@ -45,14 +50,13 @@ public class GameController {
 	public ResponseEntity<GameResponse> startANewGame(
 			final HttpServletRequest request,
 			@ApiParam(name = "request", value = "New Game Properties", required = true) @Valid @RequestBody final GameRequest gameRequest){
-		GameResponse gameResponse = new GameResponse();
 
 		URI location = ServletUriComponentsBuilder
 				.fromCurrentRequest().path("/{id}")
-				.buildAndExpand(gameResponse.getID()).toUri();
+				.buildAndExpand("gameId").toUri();
 
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.add(HttpHeaders.LOCATION, location.toString());
-		return new ResponseEntity<>(gameResponse, responseHeaders, HttpStatus.CREATED);
+		return new ResponseEntity<>(gameService.startGame(gameRequest), responseHeaders, HttpStatus.CREATED);
 	}
 }
