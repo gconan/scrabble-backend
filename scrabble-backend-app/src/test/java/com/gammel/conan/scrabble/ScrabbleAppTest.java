@@ -11,7 +11,7 @@ public class ScrabbleAppTest {
 	@Test
 	public void testEnvVarsSet() throws NoSuchMethodException, SecurityException {
 		System.setProperty("FILE_SYSTEM_PATH", "/hello/world");
-		Method checkEnvVars = ScrabbleAppTest.class.getDeclaredMethod("checkEnvVars", (Class<?>[]) null);
+		Method checkEnvVars = ScrabbleApp.class.getDeclaredMethod("checkEnvVars", (Class<?>[]) null);
 		checkEnvVars.setAccessible(true);
 		
 		try {
@@ -28,7 +28,7 @@ public class ScrabbleAppTest {
 		// intentionally commented out, checking that we throw exception if vars are not set
 		//System.setProperty("FILE_SYSTEM_PATH", "/hello/world");
 		
-		Method checkEnvVars = ScrabbleAppTest.class.getDeclaredMethod("checkEnvVars", (Class<?>[]) null);
+		Method checkEnvVars = ScrabbleApp.class.getDeclaredMethod("checkEnvVars", (Class<?>[]) null);
 		checkEnvVars.setAccessible(true);
 		
 		try {
